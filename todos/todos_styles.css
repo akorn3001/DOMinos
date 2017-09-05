@@ -6,25 +6,13 @@
 }
 
 h1 {
-  color: green;
-}
-
-li {
   color: blue;
 }
 
-.green {
-  color: green;
-}
-
-.red {
+.incomplete {
   color: red;
 }
 
-.purple {
-  color: purple;
-}
-
-.orange {
-  color: orange;
+.complete {
+  color: green;
 }

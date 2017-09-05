@@ -8,25 +8,34 @@
   </head>
   <body>
     <div class="main-content">
-      <h1>Todos</h1>
+      <div class="all-todos">
+        <h1>Todos</h1>
+        <h4>(Incomplete todos are in red, while complete todos are in green)</h3>
 
-      <br>
+        <ul class="todos-list">
+          <li class="incomplete">First Todo!</li>
+          <li class="incomplete">Second Todo!</li>
+        </ul>
 
-      <ul class="todos-list">
-        <li>First Todo!</li>
-      </ul>
+        <br>
+        <br>
 
-      <br>
+        <button id="clear-todos" class="button">Clear Out Todos</button>
+        <br>
+        <button id="complete-todos" class="button">Complete All Todos</button>
+      </div>
 
-      <label>Add Todo:
-        <input type="text" value="">
-      </label>
-      <button type="button">Submit Todo</button>
+      <div class="new-todo-form">
+        <h2>Add Todo:</h2>
+        <form class="todos-form" action="todos.html" method="post">
+          <input type="text" value="" placeholder="Add Todo...">
 
-      <br>
-      <br>
+          <input type="submit" value="Submit">
+        </form>
 
-      <button type="button" name="button">Clear Out Todos</button>
+
+      </div>
+
     </div>
 
   </body>
