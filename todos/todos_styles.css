@@ -1,0 +1,30 @@
+
+.main-content {
+  display: block;
+  width: 25%;
+  margin: auto;
+}
+
+h1 {
+  color: green;
+}
+
+li {
+  color: blue;
+}
+
+.green {
+  color: green;
+}
+
+.red {
+  color: red;
+}
+
+.purple {
+  color: purple;
+}
+
+.orange {
+  color: orange;
+}
