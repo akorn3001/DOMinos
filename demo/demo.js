@@ -3,12 +3,13 @@ function addToDo (event) {
   const $form = $l(event.currentTarget);
   const toDoText = $form.find('input[type=text]').nodes[0][0].value;
 
-  const $newToDo = $l('li', {
-    text: toDoText,
-    'class': 'incomplete'
-  });
+  const $newToDo = `<li class="incomplete">${toDoText}</li>`;
 
   $l('.todos-list').append($newToDo);
+  $l('.todos-list li').on('click', function(e) {
+    $l(e.currentTarget).toggleClass('complete');
+    $l(e.currentTarget).toggleClass('incomplete');
+  });
 }
 
 $l(() => {
