@@ -5,7 +5,7 @@ class DOMNodeCollection {
 
   html(arg) {
     if (typeof arg === 'string') {
-      return this.nodes.forEach(node => {
+      return this.each(node => {
         node.innerHTML = arg;
       });
     } else if (this.nodes.length > 0) {
@@ -14,19 +14,18 @@ class DOMNodeCollection {
   }
 
   empty() {
-    return this.nodes.forEach(node => {
+    return this.each(node => {
       node.innerHTML = "";
     });
   }
 
   append(obj) {
-    return this.nodes.forEach(node => {
+    return this.each(node => {
       if (obj instanceof HTMLElement) {
         node.innerHTML = obj.outerHTML;
       } else if (typeof obj === 'string') {
         node.innerHTML += obj;
       } else if (obj instanceof DOMNodeCollection){
-        debugger
         obj.nodes.forEach(el => {
           node.innerHTML += el.outerHTML;
         });
@@ -36,7 +35,7 @@ class DOMNodeCollection {
 
   attr(name, value) {
     if(name) {
-      this.nodes.forEach(node => node.setAttribute(name, value));
+      this.each(node => node.setAttribute(name, value));
     } else {
       return this.nodes;
     }
@@ -48,12 +47,12 @@ class DOMNodeCollection {
 
 
   removeClass() {
-    this.nodes.forEach(node => node.removeAttribute('class'));
+    this.each(node => node.removeAttribute('class'));
   }
 
   children() {
     let children = [];
-    this.nodes.forEach(node => {
+    this.each(node => {
       children.push(node.childNodes);
     });
     return new DOMNodeCollection(children);
@@ -61,7 +60,7 @@ class DOMNodeCollection {
 
   parent() {
     let parents = [];
-    this.nodes.forEach(node => {
+    this.each(node => {
       parents.push(node.parentNode);
     });
     return new DOMNodeCollection(parents);
@@ -69,7 +68,7 @@ class DOMNodeCollection {
 
   find(selector) {
     let found = [];
-    this.nodes.forEach(node => {
+    this.each(node => {
       found.push(node.querySelectorAll(selector));
     });
 
@@ -78,25 +77,27 @@ class DOMNodeCollection {
 
   remove() {
     this.empty();
-    this.nodes.forEach(node => {
+    this.each(node => {
       node.outerHTML = "";
     });
   }
 
   on(action, callback) {
-    this.nodes.forEach(node => {
+    this.each(node => {
       node.addEventListener(action, callback);
       node.eventCallback = callback;
     });
   }
 
   off(action) {
-    this.nodes.forEach(node => {
+    this.each(node => {
       node.removeEventListener(action, node.eventCallback);
     });
   }
 
-
+  each(func) {
+    this.nodes.forEach(func);
+  }
 
 } // end of DOMNodeCollection
 

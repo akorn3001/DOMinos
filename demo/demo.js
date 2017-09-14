@@ -1,10 +1,9 @@
 function addToDo (event) {
-  debugger
   event.preventDefault();
   const $form = $l(event.currentTarget);
-  const toDoText = $form.find('input[type=text]').val();
+  const toDoText = $form.find('input[type=text]').nodes[0][0].value;
 
-  const $newToDo = $l('<li>', {
+  const $newToDo = $l('li', {
     text: toDoText,
     'class': 'incomplete'
   });
