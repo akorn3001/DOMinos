@@ -47,10 +47,28 @@ class DOMNodeCollection {
     this.each(node => node.classList.remove(className));
   }
 
+  toggleClass(className) {
+    this.each(node => node.classList.toggle(className));
+  }
+
+  on(action, callback) {
+    this.each(node => {
+      node.addEventListener(action, callback);
+      node.eventCallback = callback;
+    });
+  }
+
+  off(action) {
+    this.each(node => {
+      node.removeEventListener(action, node.eventCallback);
+    });
+  }
+
+  // TRAVERSAL METHODS
   children() {
     let children = [];
     this.each(node => {
-      chidren = children.concat(Array.from(node.childNodes));
+      children = children.concat(Array.from(node.childNodes));
     });
     return new DOMNodeCollection(children);
   }
@@ -81,19 +99,7 @@ class DOMNodeCollection {
     this.each(node => node.parentNode.removeChild(node));
   }
 
-  on(action, callback) {
-    this.each(node => {
-      node.addEventListener(action, callback);
-      node.eventCallback = callback;
-    });
-  }
-
-  off(action) {
-    this.each(node => {
-      node.removeEventListener(action, node.eventCallback);
-    });
-  }
-
+  // HELPER METHODS
   each(func) {
     this.nodes.forEach(func);
   }
