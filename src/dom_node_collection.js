@@ -5,9 +5,7 @@ class DOMNodeCollection {
 
   html(el) {
     if (typeof el === 'string') {
-      return this.each(node => {
-        node.innerHTML = el;
-      });
+      this.each(node => node.innerHTML = el);
     } else if (this.nodes.length > 0) {
       return this.nodes[0].innerHTML;
     }
@@ -33,9 +31,9 @@ class DOMNodeCollection {
     this.html('');
   }
 
-  attr(name, value) {
-    if(name) {
-      this.each(node => node.setAttribute(name, value));
+  attr(attrName, value) {
+    if (typeof attrName === 'string') {
+      this.each(node => node.setAttribute(attrName, value));
     } else {
       return this.nodes;
     }
@@ -52,7 +50,7 @@ class DOMNodeCollection {
   children() {
     let children = [];
     this.each(node => {
-      children.push(node.childNodes);
+      children.concat(node.childNodes);
     });
     return new DOMNodeCollection(children);
   }
@@ -60,8 +58,12 @@ class DOMNodeCollection {
   parent() {
     let parents = [];
     this.each(node => {
-      parents.push(node.parentNode);
+      if (!node.addedAlready) {
+        parents.push(node.parentNode);
+        node.addedAlready = true;
+      }
     });
+    parents.forEach(node => node.alreadyAdded = false);
     return new DOMNodeCollection(parents);
   }
 
@@ -76,9 +78,7 @@ class DOMNodeCollection {
 
   remove() {
     this.empty();
-    this.each(node => {
-      node.outerHTML = "";
-    });
+    this.each(node => node.parentNode.removeChild(node));
   }
 
   on(action, callback) {
