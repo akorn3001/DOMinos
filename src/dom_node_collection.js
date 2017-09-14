@@ -50,7 +50,7 @@ class DOMNodeCollection {
   children() {
     let children = [];
     this.each(node => {
-      children.concat(node.childNodes);
+      chidren = children.concat(Array.from(node.childNodes));
     });
     return new DOMNodeCollection(children);
   }
