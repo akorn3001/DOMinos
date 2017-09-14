@@ -3,34 +3,34 @@ class DOMNodeCollection {
     this.nodes = nodes;
   }
 
-  html(arg) {
-    if (typeof arg === 'string') {
+  html(el) {
+    if (typeof el === 'string') {
       return this.each(node => {
-        node.innerHTML = arg;
+        node.innerHTML = el;
       });
     } else if (this.nodes.length > 0) {
       return this.nodes[0].innerHTML;
     }
   }
 
-  empty() {
-    return this.each(node => {
-      node.innerHTML = "";
-    });
+  append(el) {
+    if (el instanceof HTMLElement) {
+      el = $l(el);
+    }
+
+    if (typeof el === 'string') {
+      this.each(node => node.innerHTML += el);
+    } else if (el instanceof DOMNodeCollection) {
+      this.each(node => {
+        el.each(elNode => {
+          node.appendChild(elNode.cloneNode(true));
+        });
+      });
+    }
   }
 
-  append(obj) {
-    return this.each(node => {
-      if (obj instanceof HTMLElement) {
-        node.innerHTML = obj.outerHTML;
-      } else if (typeof obj === 'string') {
-        node.innerHTML += obj;
-      } else if (obj instanceof DOMNodeCollection){
-        obj.nodes.forEach(el => {
-          node.innerHTML += el.outerHTML;
-        });
-      }
-    });
+  empty() {
+    this.html('');
   }
 
   attr(name, value) {
@@ -42,12 +42,11 @@ class DOMNodeCollection {
   }
 
   addClass(className) {
-    this.attr('class', className);
+    this.each(node => node.classList.add(className));
   }
 
-
-  removeClass() {
-    this.each(node => node.removeAttribute('class'));
+  removeClass(className) {
+    this.each(node => node.classList.remove(className));
   }
 
   children() {
