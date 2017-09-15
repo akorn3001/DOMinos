@@ -58,11 +58,16 @@ ul {
   list-style-type: none;
 }
 
+.gif-buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
 button {
   display: block;
   font-size: 20px;
   width: 30%;
-  margin: auto;
   border-radius: 3px;
   border-style: solid;
 }

@@ -14,16 +14,12 @@ function fetchGif() {
       let url = response.data[num].images.fixed_width.url;
       $l('#gifs').append(`<li><img src="${url}" /></li>`);
     }
-
   });
-
-
 }
 
-// function completeAllTodos(event) {
-//   event.preventDefault();
-//   $l('.incomplete').addClass('complete');
-// }
+function clearGifs() {
+  $l('#gifs li').remove();
+}
 
 function addToDo (event) {
   event.preventDefault();
@@ -40,18 +36,6 @@ function addToDo (event) {
 $l(() => {
   toggleComplete();
   $l('form').on('submit', addToDo);
-  // $l('#complete-todos').on('click', completeAllTodos);
-
-  $gif = $l.ajax({
-    url: "http://api.giphy.com/v1/gifs/search?q=cats&api_key=dc6zaTOxFJmzC",
-    type: "GET",
-    success: function(response) {
-      debugger
-      // debugger
-      console.log(response.data[0].images.original.url);
-    }
-
-  });
-
   $l('#fetch-gif').on('click', fetchGif);
+  $l('#clear-gifs').on('click', clearGifs);
 });
