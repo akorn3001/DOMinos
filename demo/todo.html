@@ -15,6 +15,15 @@
           <h4>Incomplete todos are in red, while complete todos are in green</h4>
           <h4>To mark an incomplete todo as complete (or vice versa), just click it!</h4>
 
+          <div class="new-todo-form">
+            <h2>Add Todo:</h2>
+            <form class="todos-form" action="todos.html" method="post">
+              <input type="text" value="" placeholder="Add Todo...">
+
+              <input id="form-submit" type="submit" value="Submit">
+            </form>
+          </div>
+
           <ul class="todos-list">
             <li class="incomplete">First Todo!</li>
             <li class="incomplete">Second Todo!</li>
@@ -25,24 +34,17 @@
           <br>
         </div>
 
-        <div class="new-todo-form">
-          <h2>Add Todo:</h2>
-          <form class="todos-form" action="todos.html" method="post">
-            <input type="text" value="" placeholder="Add Todo...">
 
-            <input type="submit" value="Submit">
-          </form>
-        </div>
       </div>
 
-
+      <div class="gifs-div">
+        <button id="fetch-gif" type="button" name="button">Get a gif!</button>
+        <ul id="gifs">
+        </ul>
+      </div>
     </div>
 
-    <div class="gif">
-      <button id="fetch-gif" type="button" name="button">Get a gif!</button>
-      <ul id="gifs">
-      </ul>
-    </div>
+
 
   </body>
 </html>

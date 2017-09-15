@@ -1,15 +1,42 @@
 
 body {
   font-family: Georgia;
+  background-color: #FAF8EF;
 }
 
 .main-content {
-  display: block;
-  width: 25%;
+  margin-top: 30px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
   /*margin: auto;*/
 }
 
+.todos-container {
+  width: 500px;
+  margin-right: 50px;
+}
+
+.gifs-div {
+  width: 700px;
+}
+
+#gifs {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+#gifs li {
+  margin: 4px;
+}
+
+#fetch-gifs {
+  margin: auto;
+}
+
 h1 {
+  margin-top: 0;
   color: blue;
 }
 
@@ -22,11 +49,31 @@ h1 {
   text-decoration: line-through;
 }
 
-li:hover {
-  display: inline-block;
+.todos-list li:hover {
   cursor: pointer;
+  display: inline-block;
 }
 
-#gifs {
+ul {
   list-style-type: none;
+}
+
+button {
+  display: block;
+  font-size: 20px;
+  width: 30%;
+  margin: auto;
+  border-radius: 3px;
+  border-style: solid;
+}
+
+#form-submit {
+  width: 100px;
+  font-size: 20px;
+  border-radius: 3px;
+  border-style: solid;
+}
+
+button:focus, #form-submit:focus {
+  outline: none;
 }
