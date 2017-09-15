@@ -1,8 +1,12 @@
 
+body {
+  font-family: Georgia;
+}
+
 .main-content {
   display: block;
   width: 25%;
-  margin: auto;
+  /*margin: auto;*/
 }
 
 h1 {
@@ -15,4 +19,10 @@ h1 {
 
 .complete {
   color: green;
+  text-decoration: line-through;
+}
+
+li:hover {
+  display: inline-block;
+  cursor: pointer;
 }
