@@ -26,3 +26,7 @@ li:hover {
   display: inline-block;
   cursor: pointer;
 }
+
+#gifs {
+  list-style-type: none;
+}
