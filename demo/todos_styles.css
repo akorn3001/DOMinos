@@ -1,6 +1,6 @@
 
 body {
-  font-family: Georgia;
+  font-family: "canada-type-gibson", "Gibson", "Helvetica Neue";
   background-color: #FAF8EF;
 }
 
@@ -36,8 +36,14 @@ body {
 }
 
 h1 {
+  font-weight: bold;
   margin-top: 0;
   color: blue;
+  text-align: center;
+}
+
+h4 {
+  font-size: 15px;
 }
 
 .incomplete {
@@ -54,7 +60,7 @@ h1 {
   display: inline-block;
 }
 
-ul {
+#gifs {
   list-style-type: none;
 }
 
@@ -70,15 +76,46 @@ button {
   width: 30%;
   border-radius: 3px;
   border-style: solid;
+  color: white;
+  font-weight: 500;
+}
+
+button:focus, #form-submit:focus {
+  outline: none;
+}
+
+button#fetch-gif {
+  border: 1px solid #693bbf;
+  background-color: #693bbf;
+}
+
+button#clear-gifs {
+  border: 1px solid #C454DD;
+  background-color: #C454DD;
+
+}
+
+button#clear-todos {
+  border: 1px solid #F22133;
+  background-color: #F22133;
 }
 
 #form-submit {
   width: 100px;
   font-size: 20px;
   border-radius: 3px;
+  border: 1px solid #1A7477;
   border-style: solid;
+  background-color: #1A7477;
+  color: white;
+  font-weight: 500;
 }
 
-button:focus, #form-submit:focus {
-  outline: none;
+form input[type=text] {
+  font-size: 15px;
+  line-height: 20px;
+}
+
+button:hover, input[type=submit]:hover {
+  cursor: pointer;
 }
