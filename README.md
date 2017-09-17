@@ -6,14 +6,14 @@ To use DOMinos the user has but to copy the library into the root of their proje
 
 ## $dom
 The core function of DOMinos which makes everything possible is the ever-flexible `$dom()`. Given different kinds of input, `$dom()` will respond accordingly:
-- [ ] If given a string representing a CSS selector, a class, or an id, the function will return a `DOMNodeCollection` object with an array of `NodeList` items corresponding to all elements matching the given selector.
+- If given a string representing a CSS selector, a class, or an id, the function will return a `DOMNodeCollection` object with an array of `NodeList` items corresponding to all elements matching the given selector.
 ```javascript
 $dom('ul') // => DOMNodeCollection {nodes: NodeList(3)}
 $dom('.class-name') // => DOMNodeCollection {nodes: NodeList(2)}
 $dom('#id-name') // => DOMNodeCollection {nodes: NodeList(1)}
 ```
-- [ ] If given a single `HTMLElement` as its argument the element will be put into an array so that it may be wrapped in a `DOMNodeCollection` object.
-- [ ] If passed in a callback function, the function will be added to a callback queue where it will either be queued or invoked depending on whether the document has loaded.
+- If given a single `HTMLElement` as its argument the element will be put into an array so that it may be wrapped in a `DOMNodeCollection` object.
+- If passed in a callback function, the function will be added to a callback queue where it will either be queued or invoked depending on whether the document has loaded.
 ```javascript
 $dom(() => alert('*ALERT*ALERT*')) // Will be queued until the document is loaded, then all queued functions will be invoked.
 ```
