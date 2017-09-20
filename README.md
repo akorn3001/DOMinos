@@ -2,7 +2,21 @@
 
 DOMinos is a lightweight JavaScript library modeled after jQuery, allowing for straightforward DOM manipulation and traversal. The library lets the user easily select elements from the DOM, create and remove elements, as well as send AJAX requests.
 
-To use DOMinos the user has but to copy the library into the root of their project and add a `<script>` tag in the `<head>` of their HTML file to access its functions.
+### How to Use the DOMinos Library
+To use DOMinos in your project, download this library and copy it into the root of your project. You will then need to import the `DOMinos.js` file inside `<script>` tags in the `head` of your HTML file like so:
+
+```javascript
+<head>
+  ...
+  <script type="text/javascript" src="DOMinos.js"></script>
+  ...
+</head>
+```
+
+If your HTML file is not in the same directory as `DOMinos.js` you will have to make sure you have the correct path pointing to `DOMinos.js` in your `script` tag. For example:
+```javascript
+...src="./lib/DOMinos.js"</script>
+```
 
 ## $dom
 The core function of DOMinos which makes everything possible is the ever-flexible `$dom()`. Given different kinds of input, `$dom()` will respond accordingly:
