@@ -5,7 +5,7 @@ DOMinos is a lightweight JavaScript library modeled after jQuery, allowing for s
 ### How to Use the DOMinos Library
 To use DOMinos in your project, download this library and copy it into the root of your project. You will then need to import the `DOMinos.js` file inside `<script>` tags in the `head` of your HTML file like so:
 
-```javascript
+```html
 <head>
   ...
   <script type="text/javascript" src="DOMinos.js"></script>
@@ -14,8 +14,19 @@ To use DOMinos in your project, download this library and copy it into the root 
 ```
 
 If your HTML file is not in the same directory as `DOMinos.js` you will have to make sure you have the correct path pointing to `DOMinos.js` in your `script` tag. For example:
-```javascript
-...src="./lib/DOMinos.js"</script>
+```html
+<script> ... src="./lib/DOMinos.js"</script>
+```
+
+At that point, you can define any functions you will need for your project in a `JavaScript` file (I call mine `demo.js`) and import that file as well into your HTML. Here's what the `head` of my HTML file looks like:
+
+```html
+<head>
+  ...
+  <script type="text/javascript" src="./lib/DOMinos.js"></script> <!-- importing DOMinos library in my HTML file -->
+  <script type="text/javascript" src="./demo/demo.js"></script> <!-- importing JS file with my functions -->
+  ...
+</head>
 ```
 
 ## $dom
